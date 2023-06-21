@@ -1,0 +1,57 @@
+body, html {
+  background-image: url(https://cdn.pixabay.com/photo/2018/08/26/08/16/mario-3631666_1280.png);
+  height: 100%;
+  overflow: hidden;  
+  z-index: -1000;
+}
+
+#Console{
+  position: relative;
+}
+
+#temps{
+  position: absolute;
+  top: 4vh;
+  left: 0;
+}
+
+#score{
+  position: absolute;
+  top: 1vh;
+  left: 0;
+}
+
+h2 {
+  color: orange;
+  padding-top : 1.7%;
+}
+
+#perso{
+  position:absolute;
+}
+
+#piece{
+  position:absolute;
+
+}
+
+#gameover{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#great{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50vh;
+}
+
+#pumba{
+  position: absolute;
+}
+
+
