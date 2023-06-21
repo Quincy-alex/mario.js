@@ -54,4 +54,6 @@ h2 {
   position: absolute;
 }
 
-
+.hidden {
+  display: none;
+}

@@ -1,3 +1,10 @@
+// FONCTIONS
+
+
+
+// CODE PRINCIPAL
+
+
 let mario = document.getElementById('perso');
 let piece = document.getElementById('piece');
 let gameOver = document.getElementById("gameover");
@@ -6,12 +13,6 @@ let score = document.getElementById("score");
 let time = document.getElementById("temps");
 let pumba = document.getElementById("pumba");
 let move = 50;
-gameOver.width = 0;
-gameOver.height = 0;
-// Pour masquer gameover
-gameOver.style.display = "none";
-// Pour masquer great
-great.style.display = "none";
 
 // mario au milieu
 window.addEventListener('load', () => 
@@ -69,15 +70,20 @@ function collisiontrue()
 setInterval(collisiontrue,30);
 
 //timer
-let temps = 30;
+let temps = 3;
 function diminuerTemps() 
 {
-    console.log('coucou');
-    time.innerText = " Temps restant: " + temps;
+    time.innerText = `Temps restant : ${temps} s`;
     temps--;
-    return temps;
-  }
-let timer1= setInterval(diminuerTemps,1000) // création d'une variable pour arreter l'interval
+
+    if (temps < 0) {
+        clearInterval(timerChrono);
+        gameover();
+    }
+}
+
+let timerChrono = setInterval(diminuerTemps,1000) // création d'une variable pour arreter l'interval
+
 
 // suite pumba vénère
 function spawnGoomba()
@@ -103,33 +109,23 @@ function collision2true()
       }
 }
 
-let timer =setInterval(collision2true,1000); // variable pour arreter l'intervalle
+let timerCollision = setInterval(collision2true,1000); // variable pour arreter l'intervalle
 
 // arret du jeu
 function gameover()
 {
-        if (temps <= 0 && scores <= 0)
-        {
-            gameOver.width=518;
-            gameOver.height=77;
-            time.style.opacity="100%";
-            mario.style.opacity="0%";
-            piece.style.opacity="0%";
-            score.innerHTML =" Score = " + scores;
-        }
-        else if (temps <= 0 && score > 0)
-        {
-            great.width=518;
-            great.height=77;
-            time.style.opacity="100%";
-            mario.style.opacity="0%";
-            piece.style.opacity="0%";
-            score.innerHTML =" Score = " + scores;
-        }
-            clearTimeout(timer)
-            clearTimeout(timer1)
+    if (scores <= 0) {
+        gameOver.classList.remove('hidden');
+    }
+    else {
+        great.classList.remove('hidden');
+    }
+    
+    mario.classList.add('hidden');
+    piece.classList.add('hidden');
+    score.innerHTML =" Score = " + scores;
+    clearTimeout(timerCollision)
 }
-setInterval(gameover,30)
 
 
 // après avoir régler le problème du timer en haut a gauche t'as mario qu'a sauté
