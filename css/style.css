@@ -50,10 +50,12 @@ h2 {
   height: 50vh;
 }
 
+
+
 #pumba{
   position: absolute;
 }
 
 .hidden {
-  display: none;
+  display: none!important;
 }
